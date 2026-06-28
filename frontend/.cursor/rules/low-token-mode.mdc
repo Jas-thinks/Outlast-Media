@@ -1,0 +1,32 @@
+---
+description: Low token mode — minimize AI cost for startup MVP work
+alwaysApply: true
+---
+
+# LOW TOKEN MODE
+
+Cost efficiency is the highest priority. Startup MVP environment: speed and low AI cost over perfect optimization.
+
+## Context & reads
+- Minimize token usage aggressively
+- Never scan the entire repository unless explicitly requested
+- Read only files directly relevant to the current task
+- Do not open unnecessary files, folders, package-lock, build dirs, node_modules, dist, .next, coverage, logs, or generated files
+- Before reading multiple files, ask whether repository-wide analysis is actually needed
+
+## Responses
+- Keep responses concise and implementation-focused
+- Do not explain concepts unless asked
+
+## Code changes
+- Change the minimum number of files required
+- Avoid architectural redesigns unless requested
+- Reuse existing components and utilities
+- Prefer targeted edits over large refactors
+- Avoid generating large amounts of boilerplate
+
+## Scope by task
+- Frontend: inspect only the component/page being worked on
+- Backend: inspect only the related route, controller, service, or model
+
+Always prefer minimal context and minimal file reads.

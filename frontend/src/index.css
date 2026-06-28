@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   Outlast Media Creations Design System — design tokens (Tailwind v4 @theme)
+   Luxury palette: matte black · soft gold · warm off-white · warm grey
+--------------------------------------------------------------------------- */
+@theme {
+  /* ── Backgrounds & surfaces ─────────────────────────────────────────── */
+  --color-background: #060606;
+  --color-surface: #0c0b09;
+  --color-card: rgba(255, 248, 235, 0.04);
+  --color-card-hover: rgba(255, 248, 235, 0.07);
+  --color-border: rgba(255, 248, 235, 0.08);
+  --color-border-strong: rgba(255, 248, 235, 0.18);
+
+  /* ── Luxury gold accent ─────────────────────────────────────────────── */
+  /* Drawn directly from the Outlast Media logo's golden "Media" wordmark */
+  --color-primary: #c9a96e;
+  --color-primary-bright: #e2c48a;
+  --color-primary-deep: #9e7a46;
+  --color-secondary: #d4b888;
+
+  /* ── Typography ─────────────────────────────────────────────────────── */
+  --color-foreground: #f2ede4;       /* warm off-white */
+  --color-muted: #7d7672;            /* warm grey */
+  --color-faint: rgba(242, 237, 228, 0.38);
+
+  /* ── Accent system ──────────────────────────────────────────────────── */
+  --color-accent-rose: #e07070;
+  --color-accent-emerald: #5ab88a;
+  --color-accent-sky: #6baed6;
+
+  /* ── Fonts ──────────────────────────────────────────────────────────── */
+  --font-sans: "DM Sans", system-ui, -apple-system, sans-serif;
+  --font-cinzel: "Cinzel", Georgia, serif;
+
+  /* ── Radius ─────────────────────────────────────────────────────────── */
+  --radius-card: 18px;
+  --radius-pill: 999px;
+
+  /* ── Shadows (gold-tinted glow) ─────────────────────────────────────── */
+  --shadow-glow: 0 6px 28px rgba(201, 169, 110, 0.26);
+  --shadow-glow-lg: 0 12px 40px rgba(201, 169, 110, 0.38);
+  --shadow-card: 0 12px 40px rgba(0, 0, 0, 0.6);
+
+  /* ── Motion ─────────────────────────────────────────────────────────── */
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  /* Warm gold scrollbar */
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(201, 169, 110, 0.25);
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(201, 169, 110, 0.45);
+  }
+
+  ::selection {
+    background: rgba(201, 169, 110, 0.22);
+    color: #f2ede4;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Glassmorphism surface */
+  .glass {
+    border: 1px solid var(--color-border);
+    background: var(--color-card);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  /* Luxury gold gradient text — used on hero headlines */
+  .text-gradient {
+    background: linear-gradient(135deg, #c9a96e 0%, #e8c98a 55%, #f5e4b8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* Cinzel display font */
+  .font-cinzel {
+    font-family: var(--font-cinzel);
+  }
+
+  /* Subtle horizontal divider line used between sections */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-border) 30%, var(--color-border) 70%, transparent);
+  }
+}
